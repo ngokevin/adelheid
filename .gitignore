@@ -55,3 +55,6 @@ docs/_build/
 .sass-cache
 .DS_Store
 output
+*.swp
+*.mp3
+*.jpg

@@ -1,6 +1,7 @@
 title: "Neighbors"
 slug: neighbors
 image: http://cboye.files.wordpress.com/2011/01/hang-in-there.jpeg
+song: /audio/animal.mp3
 
 category: chapter
 chapter: 0
