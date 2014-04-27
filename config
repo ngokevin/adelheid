@@ -1,0 +1,2 @@
+site_title: anhilem
+url_pattern: "/{category}/{slug}/{page}/"

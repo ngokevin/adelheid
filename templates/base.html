@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhml" xmlns:fb="http://ogp.me/ns/fb#"
+      xml:lang="en" lang="en">
+  <head>
+    <title>{{ site.title }}</title>
+    <link rel="stylesheet" type="text/css" href="/css/base.css">
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,500,700' rel='stylesheet' type='text/css'>
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico?v=1">
+    <meta name="viewport" content="width=device-width">
+    {% block extrahead %}{% endblock %}
+  </head>
+
+  <body>
+    <header>
+    </header>
+
+    <div class="main">
+      {% block content %}
+      {% endblock %}
+    </div>
+  </body>
+</html>
