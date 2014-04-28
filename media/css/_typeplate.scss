@@ -18,7 +18,7 @@ $header-font-family: 'Ubuntu', sans-serif;
 
 $font-weight: normal !default;
 $line-height: 1.65 !default;
-$font-size: 125.0 !default; // percentage value (16 * 112.5% = 18px)
+$font-size: 100.0 !default; // percentage value (16 * 112.5% = 18px)
 $font-base: 16 * ($font-size/100) !default; // converts our percentage to a pixel value
 $custom-font-family: false !default; // Custom font-face stack, if set will be added to the $font-family
 $measure: $font-base * $line-height;
@@ -593,13 +593,10 @@ h1, h2, h3, h4, h5, h6 {
 // $Styles $Parargraphs
 // -------------------------------------//
 
-p {
-    margin: auto auto $indent-val;
-    & + p {
-        //siblings indentation
-        text-indent: $indent-val;
-        margin-top: -$indent-val;
-    }
+p + p {
+    //siblings indentation
+    text-indent: $indent-val;
+    margin-top: -$indent-val;
 }
 
 

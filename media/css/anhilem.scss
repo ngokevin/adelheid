@@ -1,0 +1,59 @@
+@import "_lib";
+
+header {
+    height: 75px;
+    width: 100%;
+}
+
+.bubble {
+    background-position: center center;
+    background-size: auto 50px;
+    border-radius: 50%;
+    display: block;
+    height: 50px;
+    overflow: hidden;
+    position: relative;
+    top: 2px;
+    width: 50px;
+}
+
+.chapter {
+    align-content: flex-start;
+    align-items: flex-start;
+    display: flex;
+    flex-flow: row wrap;
+    height: 100%;
+    width: 100%;
+}
+
+.row {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.row-main {
+    box-shadow: 0 0 0 1px $light-gray;
+    height: 60%;
+    justify-content: center;
+    margin: 0 auto;
+
+    .sidebar {
+        background: rgba(255, 255, 255, .7);
+        border-radius: 2px;
+        overflow: hidden;
+        padding: 20px;
+        max-width: 450px;
+    }
+
+    .key-image {
+        border-radius: 0 2px 2px 0;
+        height: 100%;
+    }
+}
+
+.image-reel {
+    bottom: 0;
+    height: unquote('calc(40% - 75px)');
+    position: absolute;
+    width: 100%;
+}

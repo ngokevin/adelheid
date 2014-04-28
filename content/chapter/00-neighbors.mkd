@@ -1,10 +1,13 @@
 title: "Neighbors"
 slug: neighbors
-image: http://cboye.files.wordpress.com/2011/01/hang-in-there.jpeg
+image: http://i.imgur.com/kTBU55i.jpg
 song: /audio/animal.mp3
 
 category: chapter
 chapter: 0
 ---
 
-Once upon a time.
+Once upon a time. Once upon a time. Once upon a time. Once upon a time.
+Once upon a time. Once upon a time. Once upon a time. Once upon a time.
+Once upon a time. Once upon a time. Once upon a time. Once upon a time.
+Once upon a time. Once upon a time. Once upon a time. Once upon a time.

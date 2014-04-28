@@ -4,13 +4,26 @@
 {% endblock %}
 
 {% block content %}
+  <header>
+    {% for chapter in site.categories.chapter|sort(attribute='chapter') %}
+      <div class="bubble" style="background-image: url('{{ chapter.image }}')"></div>
+    {% endfor %}
+  </header>
+
   {% for chapter in site.categories.chapter|sort(attribute='chapter') %}
     <section class="chapter" data-chapter="{{ chapter.chapter }}">
-      <h1>{{ chapter.title }}</h1>
-      <img class="key-image" src="{{ chapter.image }}">
-      <p class="blurb">{{ chapter.content }}</p>
-      <div class="image-reel" data-images="{{ chapter.images }}"></div>
+      <div class="row row-main">
+        <div class="sidebar">
+          <h1>{{ chapter.title }}</h1>
+          {{ chapter.content }}
+        </div>
+        <img class="key-image" src="{{ chapter.image }}">
+      </div>
+
       <audio src="{{ chapter.song }}">
+      <div class="chapter-images" data-images="{{ chapter.images }}"></div>
     </section>
   {% endfor %}
+
+  <div class="image-reel"></div>
 {% endblock %}
