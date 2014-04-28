@@ -58,16 +58,16 @@ header {
     left: 0;
     overflow: hidden;
     position: absolute;
-    width: 130%;
+    width: 200%;  // Images don't load unless drawn somewhere.
 
     .image-reel {
-        @include transition(left 300s);
+        @include transform(translateX(50%));
+        -moz-transition: -moz-transform 300s;
+        -webkit-transition: -webkit-transform 300s;
         height: 100%;
-        left: 100%;
-        position: absolute;
 
         &.ripcord {
-            left: -1000%;
+            @include transform(translateX(-1000%));
         }
         img {
             border-radius: 0;
