@@ -51,9 +51,27 @@ header {
     }
 }
 
-.image-reel {
+.image-strip {
+    background: rgba(30, 30, 30, .7);
     bottom: 0;
-    height: unquote('calc(40% - 75px)');
+    height: unquote('calc(35% - 75px)');
+    left: 0;
+    overflow: hidden;
     position: absolute;
-    width: 100%;
+    width: 130%;
+
+    .image-reel {
+        @include transition(left 300s);
+        height: 100%;
+        left: 100%;
+        position: absolute;
+
+        &.ripcord {
+            left: -1000%;
+        }
+        img {
+            border-radius: 0;
+            max-height: 100%;
+        }
+    }
 }

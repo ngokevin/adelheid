@@ -1,2 +1,2 @@
-site_title: anhilem
+site_title: adelheid
 url_pattern: "/{category}/{slug}/{page}/"

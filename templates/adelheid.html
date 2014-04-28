@@ -11,7 +11,8 @@
   </header>
 
   {% for chapter in site.categories.chapter|sort(attribute='chapter') %}
-    <section class="chapter" data-chapter="{{ chapter.chapter }}">
+    <section class="chapter {{ 'active' if loop.index0 == 0 }}"
+             data-chapter="{{ chapter.chapter }}">
       <div class="row row-main">
         <div class="sidebar">
           <h1>{{ chapter.title }}</h1>
@@ -20,10 +21,18 @@
         <img class="key-image" src="{{ chapter.image }}">
       </div>
 
-      <audio src="{{ chapter.song }}">
-      <div class="chapter-images" data-images="{{ chapter.images }}"></div>
+      <audio src="{{ chapter.song }}"></audio>
+
+      <div class="image-strip">
+        <div class="image-reel">
+          {% for image in chapter['images'] %}
+            <img src="{{ image }}">
+          {% endfor %}
+        </div>
+      </div>
     </section>
   {% endfor %}
 
-  <div class="image-reel"></div>
+  <script src="/js/lib/jquery-1.7.1.min.js" type="text/javascript"></script>
+  <script src="/js/adelheid.js" type="text/javascript"></script>
 {% endblock %}
