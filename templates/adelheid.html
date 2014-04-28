@@ -5,9 +5,17 @@
 
 {% block content %}
   <header>
-    {% for chapter in site.categories.chapter|sort(attribute='chapter') %}
-      <div class="bubble" style="background-image: url('{{ chapter.image }}')"></div>
-    {% endfor %}
+    <nav class="bubble-nav">
+      {% for chapter in site.categories.chapter|sort(attribute='chapter') %}
+        <div class="bubble" style="background-image: url('{{ chapter.image }}')"></div>
+      {% endfor %}
+    </nav>
+
+    <nav class="play-nav">
+      <span class="prev"><i class="fa fa-backward"></i></span>
+      <span class="pause"><i class="fa fa-play"></i></span>
+      <span class="next"><i class="fa fa-forward"></i></span>
+    </nav>
   </header>
 
   {% for chapter in site.categories.chapter|sort(attribute='chapter') %}

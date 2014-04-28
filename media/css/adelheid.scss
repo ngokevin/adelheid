@@ -1,8 +1,24 @@
 @import "_lib";
 
 header {
-    height: 75px;
+    align-content: center;
+    align-items: center;
+    display: flex;
+    height: 65px;
+    justify-content: space-between;
     width: 100%;
+
+    nav {
+        bottom: 8px;
+        position: relative;
+    }
+}
+
+.play-nav {
+    span {
+        font-size: 22px;
+        padding: 0 10px;
+    }
 }
 
 .bubble {
@@ -12,8 +28,6 @@ header {
     display: block;
     height: 50px;
     overflow: hidden;
-    position: relative;
-    top: 2px;
     width: 50px;
 }
 
