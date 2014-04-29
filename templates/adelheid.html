@@ -4,24 +4,26 @@
 {% endblock %}
 
 {% block content %}
-  <header>
-    <nav class="bubble-nav">
-      {% for chapter in site.categories.chapter|sort(attribute='chapter') %}
-        <div class="bubble" style="background-image: url('{{ chapter.image }}')"></div>
-      {% endfor %}
-    </nav>
+<header>
+  <nav class="bubble-nav">
+    {% for chapter in site.categories.chapter|sort(attribute='chapter') %}
+      <a class="bubble {{ 'active' if loop.index0 == 0 }}" style="background-image: url('{{ chapter.image }}')"></a>
+    {% endfor %}
+  </nav>
 
-    <nav class="play-nav">
-      <span class="prev"><i class="fa fa-backward"></i></span>
-      <span class="pause"><i class="fa fa-play"></i></span>
-      <span class="next"><i class="fa fa-forward"></i></span>
-    </nav>
-  </header>
+  <nav class="play-nav">
+    <a class="prev"><i class="fa fa-backward"></i></a>
+    <a class="pause"><i class="fa fa-play"></i></a>
+    <a class="next"><i class="fa fa-forward"></i></a>
+  </nav>
+</header>
 
+<div class="adelheid">
   {% for chapter in site.categories.chapter|sort(attribute='chapter') %}
     <section class="chapter {{ 'active' if loop.index0 == 0 }}"
-             data-chapter="{{ chapter.chapter }}">
-      <div class="row row-main">
+             data-chapter="{{ chapter.chapter }}"
+             style="z-index: {{ loop.index }}">
+      <div class="chapter-body">
         <div class="sidebar">
           <h1>{{ chapter.title }}</h1>
           {{ chapter.content }}
@@ -40,7 +42,9 @@
       </div>
     </section>
   {% endfor %}
+</div>
 
-  <script src="/js/lib/jquery-1.7.1.min.js" type="text/javascript"></script>
-  <script src="/js/adelheid.js" type="text/javascript"></script>
+<script src="/js/lib/angular.min.js" type="text/javascript"></script>
+<script src="/js/lib/jquery-1.7.1.min.js" type="text/javascript"></script>
+<script src="/js/adelheid.js" type="text/javascript"></script>
 {% endblock %}

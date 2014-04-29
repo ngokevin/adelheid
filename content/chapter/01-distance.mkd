@@ -1,0 +1,13 @@
+title: "6500 Miles"
+slug: distance
+image: http://i.imgur.com/SPsW2N9.jpg
+song: /audio/cominghome.mp3
+
+category: chapter
+chapter: 1
+---
+
+Twice upon a time. Twice upon a time. Twice upon a time. Twice upon a time.
+Twice upon a time. Twice upon a time. Twice upon a time. Twice upon a time.
+Twice upon a time. Twice upon a time. Twice upon a time. Twice upon a time.
+Twice upon a time. Twice upon a time. Twice upon a time. Twice upon a time.
