@@ -92,13 +92,13 @@ header {
     width: 200%;  // Images don't load unless drawn somewhere.
 
     .image-reel {
-        @include transform(translateX(50%));
+        @include transform(translate3d(50%, 0, 0));
         -moz-transition: -moz-transform 300s;
         -webkit-transition: -webkit-transform 300s;
         height: 100%;
 
         &.ripcord {
-            @include transform(translateX(-1000%));
+            @include transform(translate3d(-1000%, 0, 0));
         }
         img {
             border-radius: 0;
