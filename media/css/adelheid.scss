@@ -92,17 +92,36 @@ header {
     width: 200%;  // Images don't load unless drawn somewhere.
 
     .image-reel {
-        @include transform(translate3d(50%, 0, 0));
-        -moz-transition: -moz-transform 300s;
-        -webkit-transition: -webkit-transform 300s;
+        -moz-animation-play-state: paused;
+         -moz-animation: imagereel 300s linear 0s infinite normal;
+        -webkit-animation-play-state: paused;
+        -webkit-animation: imagereel 300s linear 0s infinite normal;
         height: 100%;
 
-        &.ripcord {
-            @include transform(translate3d(-1000%, 0, 0));
+        &.running {
+            -moz-animation-play-state: running;
+            -webkit-animation-play-state: running;
         }
         img {
             border-radius: 0;
             max-height: 100%;
         }
+    }
+}
+
+@-webkit-keyframes imagereel {
+    from {
+        -webkit-transform: translate3d(0, 0, 0);
+    }
+    to {
+        -webkit-transform: translate3d(-1000%, 0, 0);
+    }
+}
+@-moz-keyframes imagereel {
+    from {
+        -moz-transform: translate3d(50%, 0, 0);
+    }
+    to {
+        -moz-transform: translate3d(-1000%, 0, 0);
     }
 }
