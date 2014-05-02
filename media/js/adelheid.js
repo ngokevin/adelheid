@@ -82,9 +82,11 @@ $(document).ready(function() {
     /* ====== */
     $('.moment-link').on('click', function() {
         var $this = $(this);
+        var $chapter = $this.closest('.chapter');
         var slug = $this.data('slug');
-        var $chapter = $this.closest('.chapter-body');
-        $chapter.find('.moment[data-slug="' + slug + '"').show();
+
+        $chapter.find('.flip-container').addClass('flipped');
+        $chapter.find('.moment[data-slug="' + slug + '"]').show();
     });
 
     /* ========== */

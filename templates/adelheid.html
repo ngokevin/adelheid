@@ -1,5 +1,25 @@
 {% extends "base.html" %}
 
+{% macro card(site, page, is_moment) %}
+<div class="sidebar">
+  <div class="main-card">
+    <h1>{{ page.title }}</h1>
+    <div class="blurb">{{ page.content }}</div>
+
+    <div class="moment-links">
+      {% if not is_moment %}
+        {% for moment in site.categories.moment|sort(attribute='weight') if moment.tag == page.slug %}
+          <a class="moment-link" data-slug="{{ moment.slug }}">{{ moment.title }}</a>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</div>
+<div class="parallax">
+  <img class="key-image" src="{{ page.image }}">
+</div>
+{% endmacro %}
+
 {% block extrahead %}
 {% endblock %}
 
@@ -23,31 +43,17 @@
     <section class="chapter {{ 'active' if loop.index0 == 0 }}"
              data-chapter="{{ chapter.chapter }}"
              style="z-index: {{ loop.index }}">
-      <div class="chapter-body">
-        <div class="sidebar">
-          <div class="main-card">
-            <h1>{{ chapter.title }}</h1>
-            <div class="blurb">{{ chapter.content }}</div>
-            <div class="moment-links">
-              {% for moment in site.categories.moment|sort(attribute='weight') if moment.tag == chapter.slug %}
-                <a class="moment-link" data-slug="{{ moment.slug }}">{{ moment.title }}</a>
-              {% endfor %}
-            </div>
-          </div>
 
+      <div class="flip-container">
+        <div class="chapter-body front">
+          {{ card(site, chapter, false) }}
+        </div>
+        <div class="chapter-body back">
           {% for moment in site.categories.moment|sort(attribute='weight') if moment.tag == chapter.slug %}
-            <div class="moment" data-slug="{{ moment.slug }}">
-              <h1>{{ moment.title }}</h1>
-              {{ moment.content }}
-            </div>
+            {{ card(site, moment, true) }}
           {% endfor %}
         </div>
-        <div class="parallax">
-          <img class="key-image" src="{{ chapter.image }}">
-        </div>
       </div>
-
-      <audio src="{{ chapter.song }}"></audio>
 
       <div class="image-strip">
         <div class="image-reel">
@@ -56,6 +62,8 @@
           {% endfor %}
         </div>
       </div>
+
+      <audio src="{{ chapter.song }}"></audio>
     </section>
   {% endfor %}
 </div>
