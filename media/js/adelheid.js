@@ -40,6 +40,7 @@ $(document).ready(function() {
         // Translate adelheid.
         var translateX = -1 * chapter * chapter_width;
         $adelheid.css('-moz-transform', 'translateX(' + translateX + 'px)');
+        $adelheid.css('-webkit-transform', 'translateX(' + translateX + 'px)');
 
         // Pause animation.
         setTimeout(function() {
