@@ -11,7 +11,9 @@ $(document).ready(function() {
     var chapter_width = $(window).width();
     var adelheid_transition_ms = parseInt($adelheid.css('transition-duration'), 10) * 1000;
 
-    /* Init. */
+    /* ==== */
+    /* Init */
+    /* ==== */
     function get_chapter(chapter) {
         return $($chapters[chapter]);
     }
@@ -20,7 +22,16 @@ $(document).ready(function() {
     }
     $chapters.css('width', chapter_width);
 
-    /* Changing chapters. */
+    /* ========== */
+    /* Title page */
+    /* ========== */
+    $('.adelheid-start').click(function() {
+        $(this).closest('.prologue').addClass('raised');
+    });
+
+    /* ================= */
+    /* Changing chapters */
+    /* ================= */
     function go_to_chapter(old_chapter, chapter) {
         // Translate adelheid.
         var translateX = -1 * chapter * chapter_width;
@@ -47,7 +58,9 @@ $(document).ready(function() {
         }
     });
 
-    /* Image reel. */
+    /* ========== */
+    /* Image reel */
+    /* ========== */
     $('.chapter.active .image-reel').addClass('running');
 
     $('.image-strip, .image-reel').on('focus', function() {
