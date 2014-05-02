@@ -14,7 +14,7 @@ $(document).ready(function() {
     /* ==== */
     /* Init */
     /* ==== */
-    function get_chapter(chapter) {
+    function $get_chapter(chapter) {
         return $($chapters[chapter]);
     }
     function $active_chapter() {
@@ -33,13 +33,17 @@ $(document).ready(function() {
     /* Changing chapters */
     /* ================= */
     function go_to_chapter(old_chapter, chapter) {
+        $get_chapter(old_chapter).removeClass('active');
+        // Parallax.
+        $get_chapter(chapter).addClass('active');
+
         // Translate adelheid.
         var translateX = -1 * chapter * chapter_width;
         $adelheid.css('-moz-transform', 'translateX(' + translateX + 'px)');
 
         // Pause animation.
         setTimeout(function() {
-            get_chapter(old_chapter).find('.image-reel').removeClass('running');
+            $get_chapter(old_chapter).find('.image-reel').removeClass('running');
         }, adelheid_transition_ms);
 
         // Run new animation.
