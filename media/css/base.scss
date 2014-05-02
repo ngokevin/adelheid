@@ -9,6 +9,10 @@ html, body {
     width: 100%;
 }
 
+.hidden {
+    display: none;
+}
+
 .main {
     @include box-shadow(0 1px 2px $light-gray);
     background: url("/img/textures/main-bg.png") repeat scroll 0 0 transparent;
