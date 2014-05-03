@@ -75,6 +75,8 @@ header {
             opacity: .1;
 
             &:hover {
+                -moz-transform: none;
+                -webkit-transform: none;
                 cursor: default;
             }
         }
@@ -102,7 +104,8 @@ header {
 }
 
 .bubble {
-    @include transition(opacity $adelheid_ms);
+    -moz-transition: -moz-transform .5s linear, opacity $adelheid_ms;
+    -webkit-transition: -webkit-transform .5s linear, opacity $adelheid_ms;
     background-position: center center;
     background-size: auto 50px;
     border-radius: 50%;
@@ -113,6 +116,8 @@ header {
     width: 50px;
 
     &:hover {
+        -moz-transform: rotateZ(360deg);
+        -webkit-transform: rotateZ(360deg);
         cursor: pointer;
     }
 }
