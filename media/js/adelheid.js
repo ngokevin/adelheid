@@ -85,8 +85,18 @@ $(document).ready(function() {
         var $chapter = $this.closest('.chapter');
         var slug = $this.data('slug');
 
+        // Toggle the correct moment.
+        $chapter.find('.moment[data-slug="' + slug + '"]').addClass('active');
+        // Flip container.
         $chapter.find('.flip-container').addClass('flipped');
-        $chapter.find('.moment[data-slug="' + slug + '"]').show();
+    });
+
+    $('.moment-back').on('click', function() {
+        var $chapter = $(this).closest('.chapter');
+        $chapter.find('.flip-container').removeClass('flipped');
+        setTimeout(function() {
+            $chapter.find('.moment').removeClass('active');
+        }, 2000);
     });
 
     /* ========== */

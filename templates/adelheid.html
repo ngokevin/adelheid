@@ -5,6 +5,9 @@
   <div class="main-card">
     <h1>{{ page.title }}</h1>
     <div class="blurb">{{ page.content }}</div>
+    {% if is_moment %}
+      <a class="moment-back">Back</a>
+    {% endif %}
 
     <div class="moment-links">
       {% if not is_moment %}
@@ -48,11 +51,11 @@
         <div class="chapter-body front">
           {{ card(site, chapter, false) }}
         </div>
-        <div class="chapter-body back">
-          {% for moment in site.categories.moment|sort(attribute='weight') if moment.tag == chapter.slug %}
+        {% for moment in site.categories.moment|sort(attribute='weight') if moment.tag == chapter.slug %}
+          <div class="chapter-body moment back" data-slug="{{ moment.slug }}">
             {{ card(site, moment, true) }}
-          {% endfor %}
-        </div>
+          </div>
+        {% endfor %}
       </div>
 
       <div class="image-strip">

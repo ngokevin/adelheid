@@ -135,8 +135,8 @@ header {
 // Flip.
 .flip-container {
     -moz-perspective: 1000px;
-    -moz-transition: 2s;
-    -webkit-transition: 2s;
+    -moz-transition: 1s ease-out;
+    -webkit-transition: 1s ease-out;
     -moz-transform-style: preserve-3d;
     -webkit-transform-style: preserve-3d;
     display: flex;
@@ -147,8 +147,8 @@ header {
     &.flipped,
     .back {
         // Flip the pane when hovered.
-        -moz-transform: rotateY(180deg);
-        -webkit-transform: rotateY(180deg);
+        -moz-transform: rotateX(180deg);
+        -webkit-transform: rotateX(180deg);
     }
     .front, .back {
         // Stack 'em on top each other.
@@ -162,11 +162,6 @@ header {
     .front {
         z-index: 2;
     }
-}
-
-.moment {
-    width: 100%;
-    height: 100%;
 }
 
 .chapter-body {
@@ -196,6 +191,17 @@ header {
             -webkit-transition: -webkit-transform $adelheid-ms;
             height: 100%;
         }
+    }
+    &.back {
+        display: none;
+
+        &.active {
+            display: flex;
+        }
+    }
+    .moment-link,
+    .moment-back {
+        display: block;
     }
 }
 
