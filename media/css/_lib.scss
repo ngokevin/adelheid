@@ -41,3 +41,11 @@ $btn-color: #007500;
 @mixin def-box-shadow() {
     @include box-shadow(0 0 1px $dark-gray);
 }
+
+@mixin disable-user-select() {
+    -khtml-user-select: none;
+    -moz-user-select: -moz-none;
+    -o-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}

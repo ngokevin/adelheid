@@ -24,6 +24,17 @@ $(document).ready(function() {
     }
     $chapters.css('width', chapter_width);
 
+    $body.hammer({'swipe_velocity': 0.3}).on('swipe', function(e) {
+        if (['left', 'right'].indexOf(e.gesture.direction) === -1) {
+            return;
+        }
+        if (e.gesture.direction == 'left') {
+            $('.next').trigger('click');
+        } else {
+            $('.prev').trigger('click');
+        }
+    });
+
     /* ========== */
     /* Title page */
     /* ========== */

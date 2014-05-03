@@ -2,6 +2,10 @@
 
 $adelheid_ms: 3s;
 
+body {
+    @include disable_user_select();
+}
+
 .prologue {
     @include box-shadow(0 0 1px 2px $dark-gray);
     -moz-transition: -moz-transform 5s ease-in, opacity 5s linear 4s;
@@ -9,7 +13,7 @@ $adelheid_ms: 3s;
     -moz-transform: translate3d(0, 0, 0);
     -webkit-transform: translate3d(0, 0, 0);
     background-image: url('/img/textures/prologue-bg.png');
-    display: none;
+    display: none;  // TODO: remove.
     height: 100%;
     left: 0;
     position: fixed;
@@ -84,6 +88,10 @@ header {
 }
 
 .play-nav {
+    .next,
+    .prev {
+        display: none;
+    }
     a {
         -moz-transition: -moz-transform .2s;
         -webkit-transition: -webkit-transform .2s;
@@ -180,6 +188,7 @@ header {
 }
 
 .chapter-body {
+    @include disable_user_select();
     box-shadow: 0 0 0 1px $light-gray;
     display: flex;
     justify-content: center;
