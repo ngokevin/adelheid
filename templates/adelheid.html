@@ -12,7 +12,7 @@
     <div class="moment-links">
       {% if not is_moment %}
         {% for moment in site.categories.moment|sort(attribute='weight') if moment.tag == page.slug %}
-          <a class="moment-link" data-slug="{{ moment.slug }}">{{ moment.title }}</a>
+          <a class="moment-link bubble" data-slug="{{ moment.slug }}" style="background-image: url('{{ moment.image }}')"></a>
         {% endfor %}
       {% endif %}
     </div>
@@ -30,7 +30,7 @@
 <header>
   <nav class="bubble-nav">
     {% for chapter in site.categories.chapter|sort(attribute='chapter') %}
-      <a class="bubble {{ 'active' if loop.index0 == 0 }}" style="background-image: url('{{ chapter.image }}')"></a>
+      <a class="bubble {{ 'active' if loop.index0 <= 1 }}" style="background-image: url('{{ chapter.image }}')"></a>
     {% endfor %}
   </nav>
 
