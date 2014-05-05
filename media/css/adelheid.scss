@@ -71,18 +71,12 @@ header {
     justify-content: space-between;
     width: 100%;
 
-    nav {
-        bottom: 8px;
+    .bubble-nav {
+        bottom: 30px;
         position: relative;
 
-        .bubble:not(.active) {
-            opacity: .1;
-
-            &:hover {
-                -moz-transform: none;
-                -webkit-transform: none;
-                cursor: default;
-            }
+        .bubble:not(.active):hover {
+            cursor: default;
         }
     }
 }
@@ -112,8 +106,6 @@ header {
 }
 
 .bubble {
-    -moz-transition: -moz-transform .5s linear, opacity $adelheid_ms;
-    -webkit-transition: -webkit-transform .5s linear, opacity $adelheid_ms;
     background-position: center center;
     background-size: auto 50px;
     border-radius: 50%;
@@ -122,11 +114,30 @@ header {
     margin-right: 10px;
     overflow: hidden;
     width: 50px;
+}
 
-    &:hover {
-        -moz-transform: rotateZ(360deg);
-        -webkit-transform: rotateZ(360deg);
-        cursor: pointer;
+.bubble-nav,
+.moment-links {
+    display: flex;
+}
+
+.bubble-link,
+.moment-link {
+    @include def-box-shadow();
+    padding-right: 10px;
+    width: 50px;
+
+    &:nth-child(1) .front .bubble {
+        background: #DD1E2E;
+    }
+    &:nth-child(2) .front .bubble {
+        background: #ECB036;
+    }
+    &:nth-child(3) .front .bubble {
+        background: #06A1CD;
+    }
+    &:nth-child(4) .front .bubble {
+        background: #228559;
     }
 }
 
@@ -142,6 +153,12 @@ header {
     position: absolute;
     width: -moz-fit-content;
     width: -webkit-fit-content;
+}
+
+.chapter-body-container {
+    display: flex;
+    justify-content: center;
+    height: 65%;
 }
 
 .chapter {
@@ -161,14 +178,10 @@ header {
     -webkit-transition: 1s ease-out;
     -moz-transform-style: preserve-3d;
     -webkit-transform-style: preserve-3d;
-    display: flex;
-    justify-content: center;
-    height: 65%;
     position: relative;
 
     &.flipped,
     .back {
-        // Flip the pane when hovered.
         -moz-transform: rotateY(180deg);
         -webkit-transform: rotateY(180deg);
         box-shadow: none;
@@ -184,6 +197,16 @@ header {
     }
     .front {
         z-index: 2;
+    }
+}
+
+.flip-container.hover-flip:not(.flipped) {
+    &:hover,
+    .back {
+        // Flip the bubble when hovered.
+        -moz-transform: rotateY(180deg);
+        -webkit-transform: rotateY(180deg);
+        box-shadow: none;
     }
 }
 

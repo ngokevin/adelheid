@@ -12,6 +12,7 @@ $(document).ready(function() {
     var chapter_width = $(window).width();
     // Time it takes to change a chapter.
     var adelheid_ms = parseInt($adelheid.css('transition-duration'), 10) * 1000;
+    var transitioning = false;
 
     /* ==== */
     /* Init */
@@ -25,7 +26,7 @@ $(document).ready(function() {
     $chapters.css('width', chapter_width);
 
     $body.hammer({'swipe_velocity': 0.3}).on('swipe', function(e) {
-        if (['left', 'right'].indexOf(e.gesture.direction) === -1) {
+        if (transitioning || ['left', 'right'].indexOf(e.gesture.direction) === -1) {
             return;
         }
         if (e.gesture.direction == 'left') {
@@ -50,6 +51,8 @@ $(document).ready(function() {
             return;
         }
 
+        transitioning = true;
+
         $get_chapter(old_chapter).removeClass('active');
         setTimeout(function() {
             // Parallax logic.
@@ -65,6 +68,7 @@ $(document).ready(function() {
         // Pause animation.
         setTimeout(function() {
             $get_chapter(old_chapter).find('.image-reel').removeClass('running');
+            transitioning = false;
         }, adelheid_ms);
 
         // Run new animation.
@@ -103,12 +107,12 @@ $(document).ready(function() {
         // Toggle the correct moment.
         $chapter.find('.moment[data-slug="' + slug + '"]').addClass('active');
         // Flip container.
-        $chapter.find('.flip-container').addClass('flipped');
+        $chapter.find('.chapter-body-container').addClass('flipped');
     });
 
     $('.moment-back').on('click', function() {
         var $chapter = $(this).closest('.chapter');
-        $chapter.find('.flip-container').removeClass('flipped');
+        $chapter.find('.chapter-body-container').removeClass('flipped');
         setTimeout(function() {
             $chapter.find('.moment').removeClass('active');
         }, 500);

@@ -12,7 +12,14 @@
     <div class="moment-links">
       {% if not is_moment %}
         {% for moment in site.categories.moment|sort(attribute='weight') if moment.tag == page.slug %}
-          <a class="moment-link bubble" data-slug="{{ moment.slug }}" style="background-image: url('{{ moment.image }}')"></a>
+          <div class="flip-container hover-flip moment-link" data-slug="{{ moment.slug }}">
+            <div class="front">
+              <a class="bubble"></a>
+            </div>
+            <div class="back">
+              <a class="bubble flippable" style="background-image: url('{{ moment.image }}')"></a>
+            </div>
+          </div>
         {% endfor %}
       {% endif %}
     </div>
@@ -30,7 +37,14 @@
 <header>
   <nav class="bubble-nav">
     {% for chapter in site.categories.chapter|sort(attribute='chapter') %}
-      <a class="bubble {{ 'active' if loop.index0 <= 1 }}" style="background-image: url('{{ chapter.image }}')"></a>
+      <div class="flip-container hover-flip bubble-link {{ 'flipped' if loop.index0 == 0 }} {{ 'flippable' if loop.index0 == 1 }}">
+        <div class="front">
+          <a class="bubble"></a>
+        </div>
+        <div class="back">
+          <a class="bubble" style="background-image: url('{{ chapter.image }}')"></a>
+        </div>
+      </div>
     {% endfor %}
   </nav>
 
@@ -47,7 +61,7 @@
              data-chapter="{{ chapter.chapter }}"
              style="z-index: {{ loop.index }}">
 
-      <div class="flip-container">
+      <div class="flip-container chapter-body-container">
         <div class="chapter-body front">
           {{ card(site, chapter, false) }}
         </div>
