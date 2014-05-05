@@ -74,8 +74,8 @@ $(document).ready(function() {
         // Run new animation.
         $active_chapter().find('.image-reel').addClass('running');
 
-        $('.bubble').eq(chapter).addClass('active');
-        $('.bubble').eq(chapter + 1).addClass('active');
+        $('.bubble-link').eq(chapter).addClass('active flipped');
+        $('.bubble-link').eq(chapter + 1).addClass('active flippable');
     }
 
     $('.prev').on('click', function() {
@@ -90,9 +90,9 @@ $(document).ready(function() {
         }
     });
 
-    $body.on('click', 'nav .bubble.active', function() {
+    $body.on('click', 'nav .bubble-link.active', function() {
         var old_chapter = active_chapter_num;
-        active_chapter_num = $('.bubble').index(this);
+        active_chapter_num = $('.bubble-link').index(this);
         go_to_chapter(old_chapter, active_chapter_num);
     });
 

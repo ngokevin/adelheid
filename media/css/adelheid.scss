@@ -124,7 +124,7 @@ header {
 .bubble-link,
 .moment-link {
     @include def-box-shadow();
-    padding-right: 10px;
+    margin-right: 10px;
     width: 50px;
 
     &:nth-child(1) .front .bubble {
@@ -188,7 +188,8 @@ header {
     }
     .front, .back {
         // Stack 'em on top each other.
-        backface-visibility: hidden;
+        -moz-backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
         position: absolute;
         margin: 0 auto;
         left: 0;
@@ -200,13 +201,28 @@ header {
     }
 }
 
-.flip-container.hover-flip:not(.flipped) {
-    &:hover,
+.flip-container.hover-flip {
+    &.active:hover,
+    &.active .back:hover,
+    &.active .bubble:hover {
+        cursor: pointer;
+    }
+    &.flippable {
+        &:hover,
+        .back {
+            // Flip the bubble when hovered.
+            -moz-transform: rotateY(180deg);
+            -webkit-transform: rotateY(180deg);
+            box-shadow: none;
+        }
+    }
+    &.flipped {
     .back {
         // Flip the bubble when hovered.
         -moz-transform: rotateY(180deg);
         -webkit-transform: rotateY(180deg);
         box-shadow: none;
+    }
     }
 }
 
