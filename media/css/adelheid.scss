@@ -173,31 +173,37 @@ header {
 
 // Flip.
 .flip-container {
-    -moz-perspective: 1000px;
-    -moz-transition: 1s ease-out;
-    -webkit-transition: 1s ease-out;
-    -moz-transform-style: preserve-3d;
-    -webkit-transform-style: preserve-3d;
+    perspective: 1000;
     position: relative;
+    z-index: 1;
 
-    &.flipped,
+    &.hover-flip.flippable:hover .inner-flip,
+    &.flipped .inner-flip {
+        -moz-transform: rotateY(180deg);
+        -webkit-transform: rotateY(180deg);
+    }
+    .inner-flip {
+        -moz-transform-style: preserve-3d;
+        -webkit-transform-style: preserve-3d;
+        -moz-transition: all 1s linear;
+        -webkit-transition: all 1s linear;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        width: 100%;
+        height: 100%;
+    }
+    .front,
+    .back {
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        height: 100%;
+        position: absolute;
+        width: 100%;
+    }
     .back {
         -moz-transform: rotateY(180deg);
         -webkit-transform: rotateY(180deg);
-        box-shadow: none;
-    }
-    .front, .back {
-        // Stack 'em on top each other.
-        -moz-backface-visibility: hidden;
-        -webkit-backface-visibility: hidden;
-        position: absolute;
-        margin: 0 auto;
-        left: 0;
-        right: 0;
-        top: 0;
-    }
-    .front {
-        z-index: 2;
+        box-sizing: border-box;
     }
 }
 
@@ -207,31 +213,16 @@ header {
     &.active .bubble:hover {
         cursor: pointer;
     }
-    &.flippable {
-        &:hover,
-        .back {
-            // Flip the bubble when hovered.
-            -moz-transform: rotateY(180deg);
-            -webkit-transform: rotateY(180deg);
-            box-shadow: none;
-        }
-    }
-    &.flipped {
-    .back {
-        // Flip the bubble when hovered.
-        -moz-transform: rotateY(180deg);
-        -webkit-transform: rotateY(180deg);
-        box-shadow: none;
-    }
-    }
 }
 
-.chapter-body {
+.inner-flip .chapter-body {
     @include disable_user_select();
-    box-shadow: 0 0 0 1px $light-gray;
     display: flex;
-    justify-content: center;
     height: 100%;
+    justify-content: center;
+    left: 0;
+    margin: 0 auto;
+    right: 0;
     width: -moz-fit-content;
     width: -webkit-fit-content;
 
@@ -254,6 +245,9 @@ header {
             -webkit-transition: -webkit-transform $adelheid-ms;
             height: 100%;
         }
+    }
+    &.front {
+        box-shadow: 0 0 0 1px $light-gray;
     }
     &.back {
         display: none;

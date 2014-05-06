@@ -13,11 +13,13 @@
       {% if not is_moment %}
         {% for moment in site.categories.moment|sort(attribute='weight') if moment.tag == page.slug %}
           <div class="flip-container hover-flip moment-link flippable" data-slug="{{ moment.slug }}">
-            <div class="front">
-              <a class="bubble"></a>
-            </div>
-            <div class="back">
-              <a class="bubble" style="background-image: url('{{ moment.image }}')"></a>
+            <div class="inner-flip">
+              <div class="front">
+                <a class="bubble"></a>
+              </div>
+              <div class="back">
+                <a class="bubble" style="background-image: url('{{ moment.image }}')"></a>
+              </div>
             </div>
           </div>
         {% endfor %}
@@ -38,11 +40,13 @@
   <nav class="bubble-nav">
     {% for chapter in site.categories.chapter|sort(attribute='chapter') %}
       <div class="flip-container hover-flip bubble-link {{ 'active flipped' if loop.index0 == 0 }} {{ 'active flippable' if loop.index0 == 1 }}">
-        <div class="front">
-          <a class="bubble"></a>
-        </div>
-        <div class="back">
-          <a class="bubble" style="background-image: url('{{ chapter.image }}')"></a>
+        <div class="inner-flip">
+          <div class="front">
+            <a class="bubble"></a>
+          </div>
+          <div class="back">
+            <a class="bubble" style="background-image: url('{{ chapter.image }}')"></a>
+          </div>
         </div>
       </div>
     {% endfor %}
@@ -62,14 +66,16 @@
              style="z-index: {{ loop.index }}">
 
       <div class="flip-container chapter-body-container">
-        <div class="chapter-body front">
-          {{ card(site, chapter, false) }}
-        </div>
-        {% for moment in site.categories.moment|sort(attribute='weight') if moment.tag == chapter.slug %}
-          <div class="chapter-body moment back" data-slug="{{ moment.slug }}">
-            {{ card(site, moment, true) }}
+        <div class="inner-flip">
+          <div class="chapter-body front">
+            {{ card(site, chapter, false) }}
           </div>
-        {% endfor %}
+          {% for moment in site.categories.moment|sort(attribute='weight') if moment.tag == chapter.slug %}
+            <div class="chapter-body moment back" data-slug="{{ moment.slug }}">
+              {{ card(site, moment, true) }}
+            </div>
+          {% endfor %}
+        </div>
       </div>
 
       <div class="image-strip">
