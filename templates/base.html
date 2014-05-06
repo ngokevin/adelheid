@@ -13,13 +13,8 @@
   </head>
 
   <body>
-    <section class="prologue">
-      {% set prologue = site.slugs['prologue'] %}
-      <div class="prologue-content">
-        {{ prologue.content }}
-        <a class="adelheid-start"><i class="fa fa-play"></i></a>
-      </div>
-    </section>
+    {% block overlay %}
+    {% endblock %}
     <div class="main">
       {% block content %}
       {% endblock %}
