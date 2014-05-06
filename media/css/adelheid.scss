@@ -155,12 +155,6 @@ header {
     width: -webkit-fit-content;
 }
 
-.chapter-body-container {
-    display: flex;
-    justify-content: center;
-    height: 65%;
-}
-
 .chapter {
     align-content: flex-start;
     align-items: flex-start;
@@ -171,17 +165,20 @@ header {
     whitespace: nowrap;
 }
 
+.chapter-body-container {
+    display: flex;
+    justify-content: center;
+    height: 65%;
+    position: relative;
+    top: 2.5%;
+}
+
 // Flip.
 .flip-container {
-    perspective: 1000;
+    perspective: 1000px;
     position: relative;
     z-index: 1;
 
-    &.hover-flip.flippable:hover .inner-flip,
-    &.flipped .inner-flip {
-        -moz-transform: rotateY(180deg);
-        -webkit-transform: rotateY(180deg);
-    }
     .inner-flip {
         -moz-transform-style: preserve-3d;
         -webkit-transform-style: preserve-3d;
@@ -194,24 +191,46 @@ header {
     }
     .front,
     .back {
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
         height: 100%;
         position: absolute;
         width: 100%;
     }
     .back {
-        -moz-transform: rotateY(180deg);
-        -webkit-transform: rotateY(180deg);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
         box-sizing: border-box;
     }
-}
 
-.flip-container.hover-flip {
-    &.active:hover,
-    &.active .back:hover,
-    &.active .bubble:hover {
-        cursor: pointer;
+    &.hover-flip.active {
+        &:hover,
+        .back:hover,
+        .bubble:hover {
+            cursor: pointer;
+        }
+    }
+
+    // Rotates.
+    &.x-flip {
+        &.hover-flip.flippable:hover .inner-flip,
+        &.flipped .inner-flip {
+            -moz-transform: rotateX(180deg) rotateZ(0deg);
+            -webkit-transform: rotateX(180deg) rotateZ(0deg);
+        }
+        .back {
+            -moz-transform: rotateX(180deg) rotateZ(0deg);
+            -webkit-transform: rotateX(180deg) rotateZ(0deg);
+        }
+    }
+    &:not(.x-flip) {
+        &.hover-flip.flippable:hover .inner-flip,
+        &.flipped .inner-flip {
+            -moz-transform: rotateY(180deg) rotateZ(0deg);
+            -webkit-transform: rotateY(180deg) rotateZ(0deg);
+        }
+        .back {
+            -moz-transform: rotateY(180deg) rotateZ(0deg);
+            -webkit-transform: rotateY(180deg) rotateZ(0deg);
+        }
     }
 }
 

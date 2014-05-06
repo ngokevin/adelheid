@@ -100,7 +100,6 @@ $(document).ready(function() {
     /* Moment */
     /* ====== */
     $('.moment-link, .moment-link .bubble, .moment-link .back').on('click', function() {
-        console.log('click');
         var $this = $(this);
         var $chapter = $this.closest('.chapter');
         var slug = $this.data('slug');
