@@ -55,6 +55,12 @@ $(document).ready(function() {
         }
         transitioning = true;
 
+        // Change songs.
+        pause(songs[old_chapter]);
+        setTimeout(function() {
+            play(songs[chapter]);
+        }, adelheid_ms / 2);
+
         $get_chapter(old_chapter).removeClass('active');
         setTimeout(function() {
             // Parallax logic.
@@ -151,7 +157,7 @@ $(document).ready(function() {
         howl_song.fadeIn(1, adelheid_ms);
     }
 
-    function pause(howl_song) {
-        howl_song.fadeOut(0, adelheid_ms);
+    function pause(howl_song, cb) {
+        howl_song.fadeOut(0, adelheid_ms / 2);
     }
 });
