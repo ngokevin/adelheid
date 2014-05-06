@@ -149,6 +149,18 @@ $(document).ready(function() {
         }));
     });
 
+    $('.pause').click(function() {
+        pause(songs[active_chapter_num]);
+        $(this).hide();
+        $('.play').show();
+    });
+
+    $('.play').click(function() {
+        play(songs[active_chapter_num]);
+        $(this).hide();
+        $('.pause').show();
+    });
+
     $body.on('start', function() {
         play(songs[active_chapter_num]);
     });
