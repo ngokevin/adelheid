@@ -1,5 +1,5 @@
 @import "_lib";
-@import "typeplate.scss";
+@import "_typeplate";
 
 
 html, body {
@@ -39,10 +39,15 @@ a {
         color: $link-color-hover;
     }
 }
+
 p a,
 span a,
 li a, {
     color: $link-color-hover;
+}
+
+p {
+    margin-bottom: 26px;
 }
 
 .c:after {
