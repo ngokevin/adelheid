@@ -166,7 +166,7 @@ $(document).ready(function() {
     });
 
     function play(howl_song) {
-        howl_song.fadeIn(1, adelheid_ms);
+        howl_song.fadeIn(1, adelheid_ms / 2);
     }
 
     function pause(howl_song, cb) {

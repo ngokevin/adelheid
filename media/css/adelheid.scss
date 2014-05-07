@@ -111,7 +111,6 @@ header {
     border-radius: 50%;
     display: inline-block;
     height: 50px;
-    margin-right: 10px;
     overflow: hidden;
     width: 50px;
 }
@@ -124,19 +123,19 @@ header {
 .bubble-link,
 .moment-link {
     @include def-box-shadow();
-    margin-right: 10px;
+    margin-right: 15px;
     width: 50px;
 
-    &:nth-child(1) .front .bubble {
+    &:nth-child(4n) .front .bubble {
         background: #DD1E2E;
     }
-    &:nth-child(2) .front .bubble {
+    &:nth-child(4n + 1) .front .bubble {
         background: #ECB036;
     }
-    &:nth-child(3) .front .bubble {
+    &:nth-child(4n + 2) .front .bubble {
         background: #06A1CD;
     }
-    &:nth-child(4) .front .bubble {
+    &:nth-child(4n + 3) .front .bubble {
         background: #228559;
     }
 }
@@ -277,6 +276,7 @@ header {
     }
     .moment-back {
         display: block;
+        padding-bottom: 10px;
     }
 }
 
@@ -302,9 +302,9 @@ header {
 
     .image-reel {
         -moz-animation-play-state: paused;
-         -moz-animation: imagereel 300s linear 0s infinite normal;
+         -moz-animation: imagereel 120s linear 0s infinite normal;
         -webkit-animation-play-state: paused;
-        -webkit-animation: imagereel 300s linear 0s infinite normal;
+        -webkit-animation: imagereel 120s linear 0s infinite normal;
         height: 100%;
 
         &.running {
@@ -323,7 +323,7 @@ header {
         -webkit-transform: translate3d(50%, 0, 0);
     }
     to {
-        -webkit-transform: translate3d(-1000%, 0, 0);
+        -webkit-transform: translate3d(-400%, 0, 0);
     }
 }
 @-moz-keyframes imagereel {
@@ -331,6 +331,6 @@ header {
         -moz-transform: translate3d(50%, 0, 0);
     }
     to {
-        -moz-transform: translate3d(-1000%, 0, 0);
+        -moz-transform: translate3d(-400%, 0, 0);
     }
 }
