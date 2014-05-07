@@ -16,6 +16,7 @@ $(document).ready(function() {
     var transitioning = false;
 
     var songs = [];
+    var songs_paused = false;
 
     /* ==== */
     /* Init */
@@ -66,10 +67,12 @@ $(document).ready(function() {
         transitioning = true;
 
         // Change songs.
-        pause(songs[old_chapter]);
-        setTimeout(function() {
-            play(songs[chapter]);
-        }, adelheid_ms / 2);
+        if (!songs_paused) {
+            pause(songs[old_chapter]);
+            setTimeout(function() {
+                play(songs[chapter]);
+            }, adelheid_ms / 2);
+        }
 
         $get_chapter(old_chapter).removeClass('active');
         setTimeout(function() {
@@ -164,12 +167,14 @@ $(document).ready(function() {
     });
 
     $('.pause').click(function() {
+        songs_paused = true;
         pause(songs[active_chapter_num]);
         $(this).hide();
         $('.play').show();
     });
 
     $('.play').click(function() {
+        songs_paused = false;
         play(songs[active_chapter_num]);
         $(this).hide();
         $('.pause').show();
