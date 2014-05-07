@@ -6,6 +6,7 @@ $(document).ready(function() {
     var $body = $(document.body);
     var $adelheid = $('.adelheid');
     var $chapters = $('.chapter');
+    var $bubble_links = $('.bubble-link');
 
     var active_chapter_num = 0;
     var num_chapters = $chapters.length;
@@ -36,6 +37,15 @@ $(document).ready(function() {
         } else {
             $('.prev').trigger('click');
         }
+    });
+
+    $('.button').on('click', function() {
+        this.classList.add('tapped');
+
+        var that = this;
+        setTimeout(function() {
+            that.classList.remove('tapped');
+        }, 750);
     });
 
     /* ========== */
@@ -82,8 +92,9 @@ $(document).ready(function() {
         // Run new animation.
         $active_chapter().find('.image-reel').addClass('running');
 
-        $('.bubble-link').eq(chapter).addClass('active flipped');
-        $('.bubble-link').eq(chapter + 1).addClass('active flippable');
+        $bubble_links.removeClass('current');
+        $bubble_links.eq(chapter).addClass('active flipped current');
+        $bubble_links.eq(chapter + 1).addClass('active flippable');
     }
 
     $('.prev').on('click', function() {
@@ -99,6 +110,9 @@ $(document).ready(function() {
     });
 
     $body.on('click', 'nav .bubble-link.active', function() {
+        if (transitioning) {
+            return;
+        }
         var old_chapter = active_chapter_num;
         active_chapter_num = $('.bubble-link').index(this);
         go_to_chapter(old_chapter, active_chapter_num);

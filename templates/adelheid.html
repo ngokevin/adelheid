@@ -5,7 +5,7 @@
   {% set prologue = site.slugs['prologue'] %}
   <div class="prologue-content">
     {{ prologue.content }}
-    <a class="adelheid-start"><i class="fa fa-play"></i></a>
+    <a class="adelheid-start button"><i class="fa fa-play"></i></a>
   </div>
 </section>
 {% endblock %}
@@ -46,7 +46,7 @@
 <header>
   <nav class="bubble-nav">
     {% for chapter in site.categories.chapter|sort(attribute='chapter') %}
-      <div class="flip-container hover-flip bubble-link {{ 'active flipped' if loop.index0 == 0 }} {{ 'active flippable' if loop.index0 == 1 }}">
+      <div class="flip-container hover-flip bubble-link {{ 'active flipped current' if loop.index0 == 0 }} {{ 'active flippable' if loop.index0 == 1 }}">
         <div class="inner-flip">
           <div class="front">
             <a class="bubble"></a>
@@ -61,8 +61,8 @@
 
   <nav class="play-nav">
     <a class="prev"><i class="fa fa-backward"></i></a>
-    <a class="pause"><i class="fa fa-pause"></i></a>
-    <a class="play hidden"><i class="fa fa-play"></i></a>
+    <a class="pause button"><i class="fa fa-pause"></i></a>
+    <a class="play button hidden"><i class="fa fa-play"></i></a>
     <a class="next"><i class="fa fa-forward"></i></a>
   </nav>
 </header>

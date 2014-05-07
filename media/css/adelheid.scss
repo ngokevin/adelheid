@@ -1,6 +1,10 @@
 @import "_lib";
 
 $adelheid_ms: 3s;
+$bubble1: #DD1E2E;
+$bubble2: #ECB036;
+$bubble3: #06A1CD;
+$bubble4: #228559;
 
 body {
     @include disable_user_select();
@@ -40,10 +44,7 @@ body {
         font-size: 36px;
         padding: 5px;
 
-        &:hover {
-            -moz-transform: scale(1.2);
-            -webkit-transform: scale(1.2);
-        }
+        &.tapped,
         &:active {
             -moz-transform: scale(.9);
             -webkit-transform: scale(.9);
@@ -93,15 +94,6 @@ header {
         display: inline-block;
         font-size: 26px;
         padding: 0 15px;
-
-        &:hover {
-            -moz-transform: scale(1.1);
-            -webkit-transform: scale(1.1);
-        }
-        &:active {
-            -moz-transform: scale(.9);
-            -webkit-transform: scale(.9);
-        }
     }
 }
 
@@ -120,6 +112,8 @@ header {
     display: flex;
 }
 
+
+
 .bubble-link,
 .moment-link {
     @include def-box-shadow();
@@ -127,16 +121,38 @@ header {
     width: 50px;
 
     &:nth-child(4n) .front .bubble {
-        background: #DD1E2E;
+        background: $bubble1;
     }
     &:nth-child(4n + 1) .front .bubble {
-        background: #ECB036;
+        background: $bubble2;
     }
     &:nth-child(4n + 2) .front .bubble {
-        background: #06A1CD;
+        background: $bubble3;
     }
     &:nth-child(4n + 3) .front .bubble {
-        background: #228559;
+        background: $bubble4;
+    }
+}
+
+.bubble-link {
+    &.current,
+    &:hover {
+        .back.bubble {
+            @include box-shadow(0);
+            @include transition(all $adelheid_ms);
+        }
+        &:nth-child(4n) .back .bubble {
+            @include box-shadow(0 0 1px 1px $bubble1);
+        }
+        &:nth-child(4n + 1) .back .bubble {
+            @include box-shadow(0 0 1px 1px $bubble2);
+        }
+        &:nth-child(4n + 2) .back .bubble {
+            @include box-shadow(0 0 1px 1px $bubble3);
+        }
+        &:nth-child(4n + 3) .back .bubble {
+            @include box-shadow(0 0 1px 1px $bubble4);
+        }
     }
 }
 
