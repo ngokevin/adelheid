@@ -3,6 +3,8 @@ adelheid
 
 An interactive photocentric storybook.
 
+![](http://imgur.com/gyD3V4n.jpg)
+
 The book consists of chapters. A chapter contains:
 
 - title + text
