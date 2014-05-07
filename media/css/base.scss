@@ -4,6 +4,7 @@
 
 html, body {
     height: 100%;
+    font-family: Ubuntu;
     margin: 0;
     overflow: hidden;
     width: 100%;
@@ -21,7 +22,12 @@ html, body {
     width: 95%;
 }
 
+p {
+    margin-bottom: 26px;
+}
+
 h1, h2, h3, h4, h5, h6 {
+    font-family: georgia;
     font-weight: 500;
 }
 
@@ -44,10 +50,6 @@ p a,
 span a,
 li a, {
     color: $link-color-hover;
-}
-
-p {
-    margin-bottom: 26px;
 }
 
 .c:after {
