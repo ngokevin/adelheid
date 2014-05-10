@@ -18,6 +18,8 @@ $(document).ready(function() {
     var songs = [];
     var songs_paused = false;
 
+    var reel_interval;
+
     /* ==== */
     /* Init */
     /* ==== */
@@ -94,6 +96,7 @@ $(document).ready(function() {
 
         // Run new animation.
         $active_chapter().find('.image-reel').addClass('running');
+        setReelResetInterval();
 
         $bubble_links.removeClass('current');
         $bubble_links.eq(chapter).addClass('active flipped current');
@@ -146,12 +149,41 @@ $(document).ready(function() {
     /* ========== */
     /* Image reel */
     /* ========== */
+    // Restart animation once image reel is done.
+    var ANIMATION_DURATION = 120;
+    var ANIMATION_LENGTH = 5.5 * $body.width();
+    var ANIMATION_SPEED = ANIMATION_LENGTH / ANIMATION_DURATION;  // pixels per second;
+
     $('.image-strip, .image-reel').on('focus', function() {
         $(this)[0].blur();
     });
 
-    $body.on('start', function() {
-        $('.chapter.active .image-reel').addClass('running');
+    function setReelResetInterval() {
+        /* Mock the animation duration by calculating at what time all images
+           are seen and then resetting the animation. */
+        if (reel_interval) {
+            window.clearInterval(reel_interval);
+        }
+
+        // pixels / pixels / seconds = seconds.
+        var $image_reel = $('.chapter.active .image-reel');
+        var current_image_reel_width = $image_reel.width();
+        var animation_reset_time = current_image_reel_width / ANIMATION_SPEED;
+
+        if (current_image_reel_width) {
+            reel_interval = setInterval(function() {
+                console.log('[image-reel] Reloading the reel');
+                $image_reel.addClass('reset');
+                setTimeout(function() {
+                    $image_reel.removeClass('reset');
+                }, 500);
+            }, parseInt(animation_reset_time, 10) * 1000);
+        }
+    }
+
+    $body.on('start re-reel', function() {
+        var $image_reel = $('.chapter.active .image-reel').addClass('running');
+        setReelResetInterval();
     });
 
     /* ===== */
@@ -159,12 +191,11 @@ $(document).ready(function() {
     /* ===== */
     $('.chapter').each(function(i, chapter) {
         var $chapter = $(chapter);
-        console.log($chapter.data('song'));
         songs.push(new Howl({
             urls: [$chapter.data('song')],
             loop: true,
         }));
-    });
+    }) ;
 
     $('.pause').click(function() {
         songs_paused = true;

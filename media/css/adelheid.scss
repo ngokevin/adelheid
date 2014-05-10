@@ -112,8 +112,6 @@ header {
     display: flex;
 }
 
-
-
 .bubble-link,
 .moment-link {
     @include def-box-shadow();
@@ -201,7 +199,7 @@ header {
         -webkit-transition: all 1s linear;
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
-        width: 100%;
+        width: 95%;
         height: 100%;
     }
     .front,
@@ -326,6 +324,11 @@ header {
         &.running {
             -moz-animation-play-state: running;
             -webkit-animation-play-state: running;
+        }
+        &.reset {
+            display: none;
+            -moz-animation: none;
+            -webkit-animation: none;
         }
         img {
             border-radius: 0;
