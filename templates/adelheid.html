@@ -19,22 +19,22 @@
       <a class="moment-back">Back</a>
     {% endif %}
 
-    <div class="moment-links">
-      {% if not is_moment %}
-        {% for moment in site.categories.moment|sort(attribute='weight') if moment.tag == page.slug %}
-          <div class="flip-container hover-flip moment-link flippable" data-slug="{{ moment.slug }}">
-            <div class="inner-flip">
-              <div class="front">
-                <a class="bubble"></a>
-              </div>
-              <div class="back">
-                <a class="bubble" style="background-image: url('{{ moment.image }}')"></a>
+    {% if not is_moment %}
+      <div class="moment-links">
+          {% for moment in site.categories.moment|sort(attribute='weight') if moment.tag == page.slug %}
+            <div class="flip-container hover-flip moment-link flippable" data-slug="{{ moment.slug }}">
+              <div class="inner-flip">
+                <div class="front">
+                  <a class="bubble"></a>
+                </div>
+                <div class="back">
+                  <a class="bubble" style="background-image: url('{{ moment.image }}')"></a>
+                </div>
               </div>
             </div>
-          </div>
-        {% endfor %}
-      {% endif %}
-    </div>
+          {% endfor %}
+      </div>
+    {% endif %}
   </div>
 </div>
 <div class="parallax">
