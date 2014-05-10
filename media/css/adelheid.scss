@@ -107,6 +107,11 @@ header {
     width: 50px;
 }
 
+.moment-links {
+    height: 50px;
+    padding-bottom: 30px;
+}
+
 .bubble-nav,
 .moment-links {
     display: flex;
@@ -114,7 +119,6 @@ header {
 
 .bubble-link,
 .moment-link {
-    @include def-box-shadow();
     margin-right: 15px;
     width: 50px;
 
@@ -290,7 +294,7 @@ header {
     }
     .moment-back {
         display: block;
-        padding-bottom: 10px;
+        padding-bottom: 24px;
     }
 }
 
