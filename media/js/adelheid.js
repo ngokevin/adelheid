@@ -55,7 +55,10 @@ $(document).ready(function() {
     /* Title page */
     /* ========== */
     $('.adelheid-start').click(function() {
-        $(this).closest('.prologue').addClass('raised');
+        var $prologue = $(this).closest('.prologue').addClass('raised');
+        setTimeout(function() {
+            $prologue.addClass('raise-finished');
+        }, 5000);
         $body.trigger('start');
     });
 
