@@ -99,7 +99,9 @@ $(document).ready(function() {
 
         // Run new animation.
         $active_chapter().find('.image-reel').addClass('running');
-        setReelResetInterval();
+        setTimeout(function() {
+            setReelResetInterval();
+        }, adelheid_ms);
 
         $bubble_links.removeClass('current');
         $bubble_links.eq(chapter).addClass('active flipped current');
@@ -154,12 +156,21 @@ $(document).ready(function() {
     /* ========== */
     // Restart animation once image reel is done.
     var ANIMATION_DURATION = 120;
-    var ANIMATION_LENGTH = 5.5 * $body.width();
+    var ANIMATION_LENGTH = 7 * $body.width();
     var ANIMATION_SPEED = ANIMATION_LENGTH / ANIMATION_DURATION;  // pixels per second;
 
     $('.image-strip, .image-reel').on('focus', function() {
         $(this)[0].blur();
     });
+
+    function getWidthReel($image_reel) {
+        var width = 0;
+        $image_reel.find('img').each(function(i, img) {
+            width += $(img).width();
+        });
+        console.log('[image-reel] ' + width + 'px');
+        return width;
+    }
 
     function setReelResetInterval() {
         /* Mock the animation duration by calculating at what time all images
@@ -170,8 +181,9 @@ $(document).ready(function() {
 
         // pixels / pixels / seconds = seconds.
         var $image_reel = $('.chapter.active .image-reel');
-        var current_image_reel_width = $image_reel.width();
+        var current_image_reel_width = getWidthReel($image_reel);
         var animation_reset_time = current_image_reel_width / ANIMATION_SPEED;
+        console.log('[image-reel] Will re-reel in ' + animation_reset_time + 's.');
 
         if (current_image_reel_width) {
             reel_interval = setInterval(function() {
