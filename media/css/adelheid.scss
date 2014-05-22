@@ -19,6 +19,7 @@ body {
     background-image: url('/img/textures/prologue-bg.png');
     height: 100%;
     left: 0;
+    overflow: hidden;
     position: fixed;
     right: 0;
     width: 100%;
@@ -64,6 +65,12 @@ body {
     &.raise-finished {
         z-index: 0;
     }
+}
+
+.watermark {
+    bottom: -20px;
+    left: 100px;
+    position: absolute;
 }
 
 header {
@@ -362,4 +369,8 @@ header {
     to {
         -moz-transform: translate3d(-100%, 0, 0);
     }
+}
+
+.sidebar.empty {
+    display: none;
 }
