@@ -289,6 +289,7 @@ p + .drop-cap {
  */
 html, body {
   height: 100%;
+  font-family: Ubuntu;
   margin: 0;
   overflow: hidden;
   width: 100%; }
@@ -306,7 +307,11 @@ html, body {
   padding: 10px 2.5% 0;
   width: 95%; }
 
+p {
+  margin-bottom: 26px; }
+
 h1, h2, h3, h4, h5, h6 {
+  font-family: georgia;
   font-weight: 500; }
 
 img {
@@ -320,13 +325,17 @@ a {
   transition: color 0.2s;
   color: #004545;
   text-decoration: none; }
-  a:hover {
+  a:hover, a:not([href]) {
+    cursor: pointer;
     color: #2aaaaa; }
 
 p a,
 span a,
 li a {
   color: #2aaaaa; }
+
+p {
+  margin-bottom: 26px; }
 
 .c:after {
   content: ".";
