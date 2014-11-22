@@ -276,12 +276,14 @@ header {
   position: absolute;
   width: 2000%; }
   .image-strip .image-reel {
+    animation-play-state: paused;
     -moz-animation-play-state: paused;
     -moz-animation: imagereel 300s linear 0s infinite normal;
     -webkit-animation-play-state: paused;
     -webkit-animation: imagereel 300s linear 0s infinite normal;
     height: 100%; }
     .image-strip .image-reel.running {
+      animation-play-state: running;
       -moz-animation-play-state: running;
       -webkit-animation-play-state: running; }
     .image-strip .image-reel.reset {

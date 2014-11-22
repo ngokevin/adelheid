@@ -334,9 +334,6 @@ span a,
 li a {
   color: #2aaaaa; }
 
-p {
-  margin-bottom: 26px; }
-
 .c:after {
   content: ".";
   display: block;

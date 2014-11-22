@@ -60,6 +60,8 @@ $(document).ready(function() {
             $prologue.addClass('raise-finished');
         }, 5000);
         $body.trigger('start');
+        $('.chapter:first-child').addClass('active').find('.image-reel')
+                                 .addClass('running');
     });
 
     /* ================= */
