@@ -333,13 +333,15 @@ header {
     // Keep a 2 : 1.2 : 1-page ratio between width, duration, translateX.
 
     .image-reel {
+        animation-play-state: paused;
         -moz-animation-play-state: paused;
-         -moz-animation: imagereel 300s linear 0s infinite normal;
+        -moz-animation: imagereel 300s linear 0s infinite normal;
         -webkit-animation-play-state: paused;
         -webkit-animation: imagereel 300s linear 0s infinite normal;
         height: 100%;
 
         &.running {
+            animation-play-state: running;
             -moz-animation-play-state: running;
             -webkit-animation-play-state: running;
         }
