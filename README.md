@@ -3,13 +3,16 @@ adelheid
 
 An interactive photocentric storybook.
 
+![](http://i.imgur.com/q2tssEQ.gif)
+
 **Note:** this project was created as a gift. It was developed to be consumed
 as a a [self-published Firefox desktop packaged
 app](https://developer.mozilla.org/Marketplace/Options/Packaged_apps). My
 personal storybook turned out to be a single-page 111MB with very little
 performance optimizations.
 
-![](http://i.imgur.com/q2tssEQ.gif)
+A demo package to install is hosted at
+[http://adelheid.ngokevin.com](adelheid.ngokevin.com).
 
 The book consists of chapters. A chapter contains:
 
