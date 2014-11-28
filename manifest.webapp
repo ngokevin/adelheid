@@ -1,0 +1,9 @@
+{
+    "name": "Adelheid",
+    "package_path" : "http://adelheid.ngokevin.com/adelheid.zip",
+    "version": "1.0",
+    "developer": {
+        "name": "Kevin Ngo",
+        "url": "http://ngokevin.com"
+    }
+}

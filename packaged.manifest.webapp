@@ -1,0 +1,13 @@
+{
+  "name": "Adelheid",
+  "description": "An interactive photocentric storybook.",
+  "launch_path": "/index.html",
+  "icons": {
+    "128": "/img/favicon.ico"
+  },
+  "developer": {
+    "name": "Kevin Ngo",
+    "url": "http://ngokevin.com"
+  },
+  "default_locale": "en"
+}
