@@ -49,7 +49,8 @@ will automatically be detected in placed in the chapter's image reel.
 
 ## Building the Packaged App
 
-Configure the manifests. Assume we call the packaged app ```app.zip```.
+Configure the manifests and index.html to point to your domain. Assume we call
+the packaged app ```app.zip```.
 
     wok
     cd output

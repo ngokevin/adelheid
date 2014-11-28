@@ -1,0 +1,71 @@
+<html>
+  <head>
+    <title>Adeheid Installer</title>
+    <link rel="icon" type="image/x-icon" href="/media/img/favicon.ico?v=1">
+  </head>
+  <body>
+    <style>
+      html {
+        background: rgb(245, 245, 245);
+      }
+      body {
+        color: rgb(20, 20, 20);
+        font-family: Georgia;
+        padding: 20px;
+        text-align: center;
+      }
+      h1 {
+        color: rgba(70, 70, 70, .9);
+        font-style: italic;
+        margin-bottom: 40px;
+      }
+      img {
+        border-radius: 200px;
+        display: block;
+        height: 300px;
+        margin: 0 auto 50px;
+        text-align: center;
+        width: 300px;
+      }
+      button {
+        background: rgba(150, 15, 150, .8);
+        border: 0;
+        border-radius: 5px;
+        color: white;
+        cursor: pointer;
+        margin-bottom: 20px;
+        padding: 10px;
+      }
+      div {
+        color: rgba(100, 100, 100, .8);
+        font-style: italic;
+        margin-top: 10px;
+      }
+    </style>
+
+    <h1>Adelheid Installer</h1>
+    <button>Install</button>
+    <div class="progress"></div>
+
+    <script>
+      document.querySelector('button').onclick = install;
+
+      function install() {
+          document.querySelector('button').innerHTML = 'Installing...';
+          document.querySelector('button').onclick = null;
+
+          var req = navigator.mozApps.installPackage(
+            'http://yoursite.com/manifest.webapp');
+
+          req.onerror = function() {
+            alert(this.error.name);
+          };
+
+          setInterval(function() {
+            console.log(req);
+            document.querySelector('.progress').innerHTML = 'Installation at ' + (req.result.progress / 10000 / 100) + '%';
+          }, 5000);
+      }
+    </script>
+  </body>
+</html>
