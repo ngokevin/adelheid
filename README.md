@@ -9,7 +9,7 @@ app](https://developer.mozilla.org/Marketplace/Options/Packaged_apps). My
 personal storybook turned out to be a single-page 111MB with very little
 performance optimizations.
 
-![](http://imgur.com/gyD3V4n.jpg)
+![](http://i.imgur.com/q2tssEQ.gif)
 
 The book consists of chapters. A chapter contains:
 
