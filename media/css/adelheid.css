@@ -276,6 +276,9 @@ header {
     display: block;
     padding-bottom: 24px; }
 
+.chapter[data-background=""] .front {
+  box-shadow: 0 0 0 1px #e1e1dc; }
+
 .chapter.active .key-image {
   -moz-transform: translate3d(0, 0, 0) scale(1.1);
   -webkit-transform: translate3d(0, 0, 0) scale(1.1); }

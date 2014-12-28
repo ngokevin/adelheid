@@ -337,6 +337,10 @@ header {
     }
 }
 
+.chapter[data-background=""] .front {
+    box-shadow: 0 0 0 1px $light-gray;
+}
+
 // Parallax.
 .chapter.active .key-image {
     -moz-transform: translate3d(0, 0, 0) scale(1.1);
