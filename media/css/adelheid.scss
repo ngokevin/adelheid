@@ -88,10 +88,10 @@ body {
     img {
         // Set rules to fill background.
         min-height: 100%;
-        min-width: 1024px;
+        min-width: 100%;
         // Set up proportionate scaling.
-        width: 100%;
-        height: auto;
+        height: 100%;
+        width: auto;
 
         left: 0;
         position: absolute;
