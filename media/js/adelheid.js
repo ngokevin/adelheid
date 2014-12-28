@@ -142,15 +142,13 @@ $(document).ready(function() {
 
         var $active = $cycler.find('.active');
         var $next = $cycler.find('img[src="' + src + '"]');
-        $next.css('z-index', 3);  // Move the next image up the pile.
-        $active.fadeOut(adelheid_ms, function() {
+        $next.addClass('staged-active');  // Move the next image up the pile.
+        $active.fadeOut(1500, function() {
+            console.log('Background fading');
             // Fade out top image and reset the z-index to unhide the image.
-            $active.css('z-index', 2)
-                   .show()
-                   .removeClass('active');
+            $active.removeClass('active').show();
             // Make the next image the top one.
-            $next.css('z-index', 4)
-                  .addClass('active');
+            $next.removeClass('staged-active').addClass('active');
         });
     }
 

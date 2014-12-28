@@ -78,6 +78,8 @@ body {
     position: absolute;
     top: 0;
     z-index: 2; }
+    .background-cycler img.staged-active {
+      z-index: 3; }
     .background-cycler img.active {
       z-index: 4; }
 
