@@ -5,6 +5,7 @@ window.onscroll = function() {
 $(document).ready(function() {
     var $body = $(document.body);
     var $adelheid = $('.adelheid');
+    var $main = $('.main');
     var $chapters = $('.chapter');
     var $bubble_links = $('.bubble-link');
 
@@ -73,6 +74,9 @@ $(document).ready(function() {
         }
         transitioning = true;
 
+        // Change background.
+        cycle_background($get_chapter(chapter).data('background'));
+
         // Change songs.
         if (!songs_paused) {
             pause(songs[old_chapter]);
@@ -130,6 +134,25 @@ $(document).ready(function() {
         active_chapter_num = $('.bubble-link').index(this);
         go_to_chapter(old_chapter, active_chapter_num);
     });
+
+    function cycle_background(src){
+        // Crossfade background image to the src.
+        var $cycler = $('.background-cycler');
+        src = src || $cycler.find('img:first-child').attr('src');
+
+        var $active = $cycler.find('.active');
+        var $next = $cycler.find('img[src="' + src + '"]');
+        $next.css('z-index', 3);  // Move the next image up the pile.
+        $active.fadeOut(adelheid_ms, function() {
+            // Fade out top image and reset the z-index to unhide the image.
+            $active.css('z-index', 2)
+                   .show()
+                   .removeClass('active');
+            // Make the next image the top one.
+            $next.css('z-index', 4)
+                  .addClass('active');
+        });
+    }
 
     /* ======= */
     /* Moments */

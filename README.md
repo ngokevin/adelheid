@@ -18,6 +18,7 @@ The book consists of chapters. A chapter contains:
 
 - title + text
 - key image
+- background image
 - audio
 - moments
 - images
