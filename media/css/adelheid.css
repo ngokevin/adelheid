@@ -256,12 +256,10 @@ header {
   width: -webkit-fit-content; }
   .inner-flip .chapter-body .sidebar {
     background: rgba(255, 255, 255, 0.85);
-    border-radius: 2px;
     overflow-y: scroll;
     padding: 20px;
     max-width: 450px; }
   .inner-flip .chapter-body .parallax {
-    border-radius: 0 2px 2px 0;
     height: 100%;
     overflow: hidden;
     width: -moz-fit-content;
@@ -270,8 +268,6 @@ header {
       -moz-transition: -moz-transform 3s;
       -webkit-transition: -webkit-transform 3s;
       height: 100%; }
-  .inner-flip .chapter-body.front {
-    box-shadow: 0 0 0 1px #e1e1dc; }
   .inner-flip .chapter-body.back {
     display: none; }
     .inner-flip .chapter-body.back.active {

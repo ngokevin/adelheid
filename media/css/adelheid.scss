@@ -308,13 +308,11 @@ header {
 
     .sidebar {
         background: rgba(255, 255, 255, .85);
-        border-radius: 2px;
         overflow-y: scroll;
         padding: 20px;
         max-width: 450px;
     }
     .parallax {
-        border-radius: 0 2px 2px 0;
         height: 100%;
         overflow: hidden;
         width: -moz-fit-content;
@@ -325,9 +323,6 @@ header {
             -webkit-transition: -webkit-transform $adelheid-ms;
             height: 100%;
         }
-    }
-    &.front {
-        box-shadow: 0 0 0 1px $light-gray;
     }
     &.back {
         display: none;
