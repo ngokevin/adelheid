@@ -1,13 +1,16 @@
 {% extends "base.html" %}
 
 {% block overlay %}
-<section class="prologue">
-  {% set prologue = site.slugs['prologue'] %}
+{% set prologue = site.slugs['prologue'] %}
+<section class="prologue"
+         {% if prologue.background %}
+           style="background-image: url({{ prologue.background }})"
+         {% else %}
+           style="background-image: url(/img/textures/prologue-bg.png)"
+         {% endif %}>
   <div class="prologue-content">
     {{ prologue.content }}
-    <a class="adelheid-start button"><i class="fa fa-play"></i></a>
   </div>
-  <img class="watermark" src="/img/prologue.png">
 </section>
 {% endblock %}
 

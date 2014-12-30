@@ -55,14 +55,17 @@ $(document).ready(function() {
     /* ========== */
     /* Title page */
     /* ========== */
-    $('.adelheid-start').click(function() {
-        var $prologue = $(this).closest('.prologue').addClass('raised');
-        setTimeout(function() {
-            $prologue.addClass('raise-finished');
-        }, 5000);
+    $('.prologue').click(function() {
+        var $prologue = $(this);
+
         $body.trigger('start');
         $('.chapter:first-child').addClass('active').find('.image-reel')
                                  .addClass('running');
+
+        $prologue.addClass('remove');
+        setTimeout(function() {
+            $prologue.remove();
+        }, 5000);
     });
 
     /* ================= */
