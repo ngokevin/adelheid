@@ -138,17 +138,16 @@ $(document).ready(function() {
     function cycle_background(src){
         // Crossfade background image to the src.
         var $cycler = $('.background-cycler');
+        var $active = $cycler.find('img');
         src = src || $cycler.find('img:first-child').attr('src');
 
-        var $active = $cycler.find('.active');
-        var $next = $cycler.find('img[src="' + src + '"]');
-        $next.addClass('staged-active');  // Move the next image up the pile.
-        $active.fadeOut(1500, function() {
-            console.log('Background fading');
-            // Fade out top image and reset the z-index to unhide the image.
-            $active.removeClass('active').show();
-            // Make the next image the top one.
-            $next.removeClass('staged-active').addClass('active');
+        var $next = $(document.createElement('img'));
+        $next.attr('src', src).addClass('staged');
+        $cycler.append($next);
+
+        $active.fadeOut(adelheid_ms, function() {
+            $active.remove();
+            $next.removeClass('staged');
         });
     }
 

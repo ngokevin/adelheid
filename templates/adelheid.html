@@ -47,13 +47,12 @@
 
 {% block content %}
 <div class="background-cycler">
-  <img src="/img/textures/main-bg.png">  {# Do not remove. #}
-  {% for chapter in site.categories.chapter|sort(attribute='chapter') %}
-    {% if chapter.background %}
-      <img src="{{ chapter.background }}" alt="{{ chapter.title }}"
-           {% if loop.index0 == 0 %}class="active"{% endif %}>
-    {% endif %}
-  {% endfor %}
+  {% set chapters = site.categories.chapter|sort(attribute='chapter') %}
+  {% if chapters[0].background %}
+    <img src="{{ chapters[0].background }}">
+  {% else %}
+    <img src="/img/textures/main-bg.png">
+  {% endif %}
 </div>
 
 <header>

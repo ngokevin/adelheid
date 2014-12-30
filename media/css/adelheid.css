@@ -14,6 +14,7 @@ body {
   -moz-transform: translate3d(0, 0, 0);
   -webkit-transform: translate3d(0, 0, 0);
   background-image: url("/img/textures/prologue-bg.png");
+  font-family: 'Indie Flower', cursive;
   height: 100%;
   left: 0;
   overflow: hidden;
@@ -77,11 +78,9 @@ body {
     left: 0;
     position: absolute;
     top: 0;
-    z-index: 2; }
-    .background-cycler img.staged-active {
+    z-index: 4; }
+    .background-cycler img.staged {
       z-index: 3; }
-    .background-cycler img.active {
-      z-index: 4; }
 
 header {
   align-content: center;
