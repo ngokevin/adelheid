@@ -59,8 +59,7 @@ $(document).ready(function() {
         var $prologue = $(this);
 
         $body.trigger('start');
-        $('.chapter:first-child').addClass('active').find('.image-reel')
-                                 .addClass('running');
+        $('.chapter:first-child').find('.image-reel').addClass('running');
 
         $prologue.addClass('remove');
         setTimeout(function() {
