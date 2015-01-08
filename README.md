@@ -12,7 +12,7 @@ personal storybook turned out to be a single-page 111MB with very little
 performance optimizations.
 
 A demo package to install is hosted at
-[http://adelheid.ngokevin.com](adelheid.ngokevin.com).
+[adelheid.ngokevin.com](http://adelheid.ngokevin.com).
 
 The book consists of chapters. A chapter contains:
 
